@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style3.css">
+
+</head>
+
+<body>
+    <div class="loader">
+        <div class="cont">
+            <div class="load"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+    <div class="date"></div>
+    <div class="clock">
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+    <div class="bubbles">
+    <div class="bub bub1">
+        <div class="bubble1 bubble"></div>
+    </div>
+    <div class="bub bub2">
+        <div class="bubble2 bubble"></div>
+    </div>
+    <div class="bub bub3">
+        <div class="bubble3 bubble"></div>
+    </div>
+    <div class="bub bub4">
+        <div class="bubble4 bubble"></div>
+    </div>
+    <div class="bub bub5">
+        <div class="bubble5 bubble"></div>
+    </div>
+    </div>
+    <script>
+        let bubble = document.querySelectorAll(".bub");
+        document.addEventListener("mousemove", (e) => {
+            let x = e.pageX;
+            let y = e.pageY;
+            bubble[0].style.transform = `translate(${x / 60}px , ${y / 60}px)`;
+            bubble[1].style.transform = `translate(${x / 60}px , ${y / 60}px)`;
+            bubble[2].style.transform = `translate(${x / 60}px , ${y / 60}px)`;
+            bubble[3].style.transform = `translate(${x / 60}px , ${y / 60}px)`;
+            bubble[4].style.transform = `translate(${x / 60}px , ${y / 60}px)`;
+        })
+    </script>
+    <script src="script/script.js"></script>
+</body>
+
+</html>

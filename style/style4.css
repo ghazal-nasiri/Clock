@@ -1,0 +1,83 @@
+* {
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+
+}
+
+.clock {
+    transform-style: preserve-3d;
+    transform: perspective(500px) rotateX(var(--yAngle, 0deg)) rotateY(var(--xAngle, 0deg));
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: url(../clockImages/clock4.svg) center;
+    background-size: contain;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px black;
+}
+
+.clock::after {
+    content: "";
+    position: absolute;
+    width: 3%;
+    height: 3%;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+}
+
+.second {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.second::after {
+    content: "";
+    width: 2px;
+    height: 50%;
+    background-color: rgb(0, 0, 0);
+
+}
+
+.minute {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.minute::after {
+    content: "";
+    width: 50%;
+    transform: rotate(-90deg);
+    height: 55%;
+    background: url(../clockImages/hands-minute-2.svg) no-repeat center;
+    background-size: contain;
+
+}
+
+.hour {
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.hour::after {
+    content: "";
+    transform: rotate(-90deg);
+    width: 50%;
+    height: 60%;
+    background: url(../clockImages/hands-hour-2.svg) no-repeat center;
+    background-size: contain;
+
+}

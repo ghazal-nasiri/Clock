@@ -1,0 +1,176 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+body {
+    background: linear-gradient(to top right, #521d63, #8d2f88, #fc7aeb);
+}
+
+.clock {
+    z-index: 100;
+    background: url(../clockImages/clock3.svg) no-repeat center;
+    background-size: contain;
+}
+.clock::after{
+    width: 15px;
+    height: 15px;
+}
+
+.second::after,
+.minute::after,
+.hour::after {
+    content: "";
+    width: 10px;
+    border-radius: 8px 8px 0 0;
+    background-color: black;
+
+}
+
+.second::after {
+    height: 50%;
+}
+
+.minute::after {
+    height: 50%;
+}
+
+.hour::after {
+    height: 50%;
+}
+
+/* Bubbles */
+
+.bubbles{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bub {
+    border-radius: 50%;
+    position: fixed;
+}
+
+.bubble {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    background-color: transparent;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+    border: 1px solid black;
+    animation: bubbles 2.5s infinite;
+}
+
+.bubble::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.884);
+    background-color: rgba(255, 255, 255, 0.719);
+}
+
+
+
+.bub1 {
+    width: 170px;
+    height: 170px;
+    bottom: 30px;
+    right: 30px;
+}
+
+
+.bubble1::after {
+    width: 40px;
+    transform: rotate(-40deg);
+    height: 25px;
+    top: 26px;
+    left: 22px;
+}
+
+.bub2 {
+    width: 270px;
+    height: 270px;
+    bottom: 10vh;
+    left: 2vw;
+}
+
+.bubble2::after {
+    width: 80px;
+    transform: rotate(-40deg);
+    height: 45px;
+    top: 36px;
+    left: 35px;
+}
+
+.bub3 {
+    width: 200px;
+    height: 200px;
+    top: 10vh;
+    right: 5vw;
+}
+
+
+.bubble3::after {
+    width: 60px;
+    transform: rotate(-40deg);
+    height: 35px;
+    top: 26px;
+    left: 32px;
+}
+
+.bub4 {
+    width: 140px;
+    height: 140px;
+    top: 5vh;
+    left: 1vw;
+}
+
+
+.bubble4::after {
+    width: 50px;
+    transform: rotate(-40deg);
+    height: 25px;
+    top: 20px;
+    left: 15px;
+}
+
+.bub5 {
+    width: 100px;
+    height: 100px;
+    top: 25vh;
+    left: 16vw;
+}
+
+.bubble5::after {
+    width: 40px;
+    transform: rotate(-40deg);
+    height: 20px;
+    top: 15px;
+    left: 10px;
+}
+
+@keyframes bubbles {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+
+}
+
+@media screen and (max-width : 400px) {
+
+    .bubble2,
+    .bubble5,
+    .bubble3 {
+        display: none;
+    }
+
+}

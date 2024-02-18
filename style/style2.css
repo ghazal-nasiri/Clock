@@ -1,0 +1,76 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/* clock */
+.clock {
+    background: url(../clockImages/clock2.svg) no-repeat center;
+    transform-style: preserve-3d;
+    transform: perspective(500px) rotateX(var(--yAngle, 0deg)) rotateY(var(--xAngle, 0deg));
+    background-size: contain;
+}
+.second{
+    position: absolute;
+    width: 80%;
+    height:80%;
+    display: flex;
+    justify-content: center;
+}
+.second::after{
+    content: "";
+    width: 2px;
+    height: 50%;
+    background-color: rgb(0, 0, 0);
+
+}
+.minute{
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+
+}
+.minute::after{
+    content: "";
+    width: 50%;
+    transform: rotate(-90deg);
+    height: 55%;
+    background: url(../clockImages/hands-minute-1.svg) no-repeat center;
+    background-size: contain;
+
+}
+
+.hour{
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+}
+.hour::after{
+    content: "";
+    transform: rotate(-90deg);
+    width: 50%;
+    height: 56%;
+    background: url(../clockImages/hands-hour-1.svg) no-repeat center;
+    background-size: contain;
+
+}
+/* ------- input color ------- */
+.input {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+
+input {
+    width: 100vw;
+    height: 100vh;
+    cursor: pointer;
+    background-color: #A74AC7;
+    border: 0px solid black;
+}
+
+input::-webkit-color-swatch {
+    border: 0;
+}

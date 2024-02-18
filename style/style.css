@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: #A74AC7;
+}
+
+.clock {
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    transform: perspective(500px) rotateX(var(--yAngle, 0deg)) rotateY(var(--xAngle, 0deg));
+    width: 400px;
+    max-width: 70%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px black;
+    position: fixed;
+}
+
+.clock::after {
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4%;
+    height: 4%;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 5;
+}
+
+.second {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+}
+
+.minute {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+
+}
+
+.hour {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+
+}
+
+@media screen and (max-width: 500px) {
+    .second {
+        max-height: 90%;
+
+    }
+
+    .minute {
+        max-height: 60%;
+    }
+
+    .hour {
+        max-height: 40%;
+    }
+}
+
+.loader {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: #A74AC7;
+
+
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader p {
+    font-size: 30px;
+    font-family: cursive;
+}
+
+.load {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 8px solid #A74AC7;
+    border-top: 8px solid black;
+    border-radius: 50%;
+    animation: loading .5s linear infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(1turn);
+    }
+
+}
+
+
+.date {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 40px;
+    z-index: 100;
+}
