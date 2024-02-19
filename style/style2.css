@@ -1,5 +1,8 @@
-* {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+body{
+    background-color: rgb(0, 0, 0);
+}
+*{
+    font-family: serif;
 }
 /* clock */
 .clock {
@@ -8,6 +11,7 @@
     transform: perspective(500px) rotateX(var(--yAngle, 0deg)) rotateY(var(--xAngle, 0deg));
     background-size: contain;
 }
+
 .second{
     position: absolute;
     width: 80%;
@@ -57,20 +61,17 @@
 
 }
 /* ------- input color ------- */
-.input {
-    position: fixed;
-    right: 0px;
-    top: 0px;
-}
 
 input {
     width: 100vw;
     height: 100vh;
     cursor: pointer;
-    background-color: #A74AC7;
+    background-color: transparent;
     border: 0px solid black;
 }
 
 input::-webkit-color-swatch {
     border: 0;
+    border-radius: 30px;
+
 }

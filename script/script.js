@@ -1,6 +1,6 @@
 let clocka = document.querySelector(".clock");
-clocka.style.height = getComputedStyle(clocka).width;
 
+clocka.style.height = getComputedStyle(clocka).width;
 window.addEventListener("resize" , ()=>{
     clocka.style.height = getComputedStyle(clocka).width;
 
@@ -67,9 +67,27 @@ function clock(){
 
 // ////////////////Loading
 
-let loader = document.querySelector(".loader");
+let loader = document.querySelector(".loading");
 
 window.addEventListener("load" , ()=>{
     loader.style.visibility = "hidden";
+})
+
+// /////////// click effect
+
+document.addEventListener("click" , (e)=>{
+    let x = e.pageX;
+    let y = e.pageY;    
+    let span = document.createElement("span");
+    span.classList.add("mouse-effect");
+    span.style.top = y + "px";
+    span.style.left = x + "px";
+
+
+    document.body.appendChild(span);
+
+    setInterval(() => {
+        span.remove()
+    }, 400);
 })
 
