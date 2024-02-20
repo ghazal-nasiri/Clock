@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clock</title>
+    <link rel="shortcut icon" href="clock icon/clock icon.png" type="image/x-icon">
     <link rel="stylesheet" href="style/style1.css">
     <link rel="stylesheet" href="style/style.css">
 
 </head>
 
 <body>
-    <div class="loader">
+    <div class="loading">
         <div class="cont">
             <div class="load"></div>
             <p>Loading...</p>
@@ -29,6 +30,15 @@
         document.addEventListener("mousemove", (e) => {
             let x = e.clientX;
             let y = e.clientY;
+            let r = Math.floor(x / 5) + 100;
+            let g = Math.floor(y / 2) + 30;
+            let b = Math.floor(y / 2) + 30;
+            let color = `rgb(${r} , ${g} , ${b})`;
+            document.body.style.backgroundColor = color;
+        })
+        document.addEventListener("touchmove", (e) => {
+            let x = e.touches[0].clientX;
+            let y = e.touches[0].clientY;
             let r = Math.floor(x / 5) + 100;
             let g = Math.floor(y / 2) + 30;
             let b = Math.floor(y / 2) + 30;

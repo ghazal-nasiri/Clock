@@ -10,7 +10,6 @@ prev.addEventListener("click" , () =>{
 let second = document.querySelectorAll(".second");
 let minute = document.querySelectorAll(".minute");
 let hour = document.querySelectorAll(".hour");
-// let da = document.querySelector(".date");
 setInterval(sec , 1000);
 function sec(){
     let date = new Date();
@@ -26,13 +25,9 @@ function sec(){
     hour.forEach(e => {
         e.style.transform = `rotate(${30 * nowhou}deg)`;
         });
-//     let sec = nowSec < 10 ? "0" + nowSec : nowSec;
-//     let min = nowmin < 10 ? "0" + nowmin : nowmin;
-//     let hou = nowhou < 10 ? "0" + nowhou : nowhou;
-// da.innerHTML = `${hou}:${min}:${sec}`;
 }
 
-let loader = document.querySelector(".loader");
+let loader = document.querySelector(".loading");
 
 window.addEventListener("load" , ()=>{
     loader.style.visibility = "hidden";

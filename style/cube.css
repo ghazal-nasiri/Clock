@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -5,60 +9,60 @@ body {
     height: 100vh;
     overflow: hidden;
     cursor: crosshair;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
 }
 
-
-* {
-    box-sizing: border-box;
-}
-
+body,
+.cont,
+.loading,
+.cube .face .clock,
+.cube .face,
 .canvas {
-    position: relative;
-    width: 300px;
-    max-width: 70%;
-    height: 300px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: rgba(255, 0, 0, 0);
-    perspective: 850px;
+    justify-content: center;
 }
 
-.clock{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cube .face .container,
+.cube .face .clock::after,
+.load {
+    border-radius: 50%;
+
 }
+
+body,
+.canvas,
+.cube .face .clock::after,
+.cube .face:nth-child(1) .clock div::after,
+.cube .face:nth-child(2) .second::after,
+.cube .face:nth-child(4) .second::after,
+.cube .face:nth-child(3) .clock div::after,
+.loading {
+    background-color: rgb(0, 0, 0);
+}
+
+button,
+.cube,
+.cube .face,
+.cube .face .clock div {
+    position: absolute;
+}
+
+/* ----- button ------  */
 
 .canvas button {
-    color: #ffffff;
+    transform: translateY(-50%);
+    top: 110%;
+    border: 0;
+    z-index: 10;
+    font-size: 40px;
+    background-color: transparent;
+    color: #A74AC7;
     cursor: pointer;
 }
 
-button {
-    position: absolute;
-    transform: translateY(-50%);
-    top: 50%;
-    /* width: auto;
-    height: auto; */
-    border-radius: 50%;
-    border: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    background-color: transparent;
-
-
-}
 
 button:nth-child(1) {
-    left: -40px;
+    left: 20%;
 }
 
 button:nth-child(1)::after {
@@ -66,228 +70,191 @@ button:nth-child(1)::after {
 }
 
 button:nth-child(2) {
-    right: -40px;
+    right: 20%;
 }
 
 button:nth-child(2)::after {
     content: "\002771";
 }
+@media screen and (min-width:450px) {
+    .canvas button{
+        top: 50%;
+    }
+    button:nth-child(1) {
+        left: -40px;
+    }
+    
+    button:nth-child(2) {
+        right: -40px;
+    }
+}
+
+/* -------- Cube -------- */
+
+.canvas {
+    width: 300px;
+    max-width: 70%;
+    height: 300px;
+    perspective: 850px;
+}
+
+.cube .face .container div::after {
+    content: "";
+}
+
+.cube .face .clock,
+.cube .face .container,
+.cube .face {
+    width: 100%;
+    height: 100%;
+}
+
+.cube .face .container {
+    box-shadow: inset 0 0 5px black;
+}
+
+.canvas,
+.cube .face .clock {
+    position: relative;
+}
+
+.cube .face .clock div {
+    display: flex;
+    justify-content: center;
+}
+
+.cube .face .container {
+    padding: 5px;
+}
+
+.cube .face {
+    padding: 10px;
+}
+
+.cube .face:nth-child(odd) .clock div::after {
+    border-radius: 8px 8px 0 0;
+}
 
 .cube {
-    position: absolute;
     width: 200px;
     height: 200px;
     transform-origin: 50% 50% 100px;
     transform-style: preserve-3d;
     transition: all .5s ease-out;
-
 }
 
-
-
 .cube .face {
-    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #A74AC7;
     border: 2px solid rgb(0, 0, 0);
 }
 
-@keyframes heartBeat {
-    0% {
-        width: 70%;
-        height: 80%;
-    }
-
-    100% {
-        width: 60%;
-        height: 70%;
-    }
-}
-
 .cube .face:nth-child(1) {
-    padding: 10px;
     transform: translateZ(200px);
 }
 
 .cube .face:nth-child(2) {
-    padding: 10px;
     transform-origin: center right;
     transform: rotateY(90deg);
 }
 
 .cube .face:nth-child(3) {
-    padding: 10px;
     transform-origin: center center;
     transform: rotateY(180deg);
 }
 
 .cube .face:nth-child(4) {
-    padding: 10px;
     transform-origin: center left;
     transform: rotateY(-90deg);
-
 }
 
-.cube .face:nth-child(1) .container {
-    width: 100%;
-    height: 100%;
-    padding: 5px;
-    border-radius: 50%;
-    box-shadow: inset 0 0 5px black;
+@media screen and (min-width: 1400px) {
+    .cube .face:nth-child(1) {
+        transform: translateZ(300px);
+    }
+
+    .cube {
+        width: 300px;
+        height: 300px;
+        transform-origin: 50% 50% 150px;
+    }
+    .canvas {
+        width: 600px;
+        height: 600px;
+    }
+    .canvas button {
+        font-size: 70px;
+    }
 }
 
 .cube .face:nth-child(1) .clock {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
     background: url(../clockImages/clock1.svg) no-repeat center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-size: contain;
-    position: relative;
-
 }
 
 .cube .face:nth-child(1) .clock::after {
-    content: "";
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 7%;
     height: 7%;
-    border-radius: 50%;
-    background-color: black;
-    z-index: 5;
 }
 
 .cube .face:nth-child(1) .second {
-    position: absolute;
     width: 150px;
     height: 150px;
-    display: flex;
-    justify-content: center;
 }
 
 .cube .face:nth-child(1) .second::after {
-    content: "";
     width: 4px;
     height: 80px;
-    background-color: black;
-    border-radius: 8px 8px 0 0;
 }
 
 .cube .face:nth-child(1) .minute {
-    position: absolute;
     width: 100px;
     height: 100px;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-
 }
 
 .cube .face:nth-child(1) .minute::after {
-    content: "";
     width: 4px;
-    border-radius: 8px 8px 0 0;
     height: 50px;
-    background-color: black;
 }
 
 .cube .face:nth-child(1) .hour {
-    position: absolute;
     width: 60px;
     height: 60px;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-
 }
 
 .cube .face:nth-child(1) .hour::after {
-    content: "";
     width: 4px;
-    border-radius: 8px 8px 0 0;
     height: 30px;
-    background-color: black;
-}
-
-
-
-
-.cube .face:nth-child(2) .container {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    display: flex;
-    padding: 5px;
-    box-shadow: inset 0 0 5px black;
-    justify-content: center;
-    align-items: center;
-
 }
 
 .cube .face:nth-child(2) .clock {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
     background: url(../clockImages/clock2.svg) no-repeat center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-size: contain;
-    position: relative;
 }
 
 .cube .face:nth-child(2) .clock::after {
-    content: "";
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 6%;
     height: 6%;
-    border-radius: 50%;
-    background-color: rgb(0, 0, 0);
-    z-index: 5;
 }
 
 .cube .face:nth-child(2) .second {
-    position: absolute;
     width: 150px;
     height: 150px;
-    display: flex;
-    justify-content: center;
 }
 
 .cube .face:nth-child(2) .second::after {
-    content: "";
     width: 2px;
     height: 80px;
-    background-color: black;
-    border-radius: 8px 8px 0 0;
 }
 
 .cube .face:nth-child(2) .minute {
-    position: absolute;
     width: 150px;
     height: 150px;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-
 }
 
 .cube .face:nth-child(2) .minute::after {
-    content: "";
     width: 60px;
-    border-radius: 8px 8px 0 0;
     height: 40px;
     margin-top: 29px;
     transform: rotate(-90deg);
@@ -296,19 +263,12 @@ button:nth-child(2)::after {
 }
 
 .cube .face:nth-child(2) .hour {
-    position: absolute;
     width: 80px;
     height: 80px;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-
 }
 
 .cube .face:nth-child(2) .hour::after {
-    content: "";
     width: 50px;
-    border-radius: 8px 8px 0 0;
     height: 30px;
     margin-top: 5px;
     transform: rotate(-90deg);
@@ -316,81 +276,90 @@ button:nth-child(2)::after {
     background-size: contain;
 }
 
+.cube .face:nth-child(3) .clock {
+    background: url(../clockImages/clock3.svg) no-repeat center;
+    background-size: contain;
+}
 
+.cube .face:nth-child(3) .clock::after {
+    width: 15px;
+    height: 15px;
+}
 
+.cube .face:nth-child(3) .second {
+    width: 160px;
+    height: 160px;
+}
+
+.cube .face .clock div::after {
+    width: 7px;
+}
+
+.cube .face:nth-child(3) .second::after {
+    height: 80px;
+}
+
+.cube .face:nth-child(3) .minute {
+    width: 110px;
+    height: 110px;
+}
+
+.cube .face:nth-child(3) .minute::after {
+    height: 50px;
+}
+
+.cube .face:nth-child(3) .hour {
+    width: 70px;
+    height: 70px;
+}
+
+.cube .face:nth-child(3) .hour::after {
+    height: 30px;
+}
 
 .cube .face:nth-child(4) .clock {
     transform-style: preserve-3d;
     transform: perspective(500px) rotateX(var(--yAngle, 0deg)) rotateY(var(--xAngle, 0deg));
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
     background: url(../clockImages/clock4.svg) center;
-    background-size: cover;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: inset 0px 0px 5px black;
+    background-size: contain;
 }
 
 .cube .face:nth-child(4) .clock::after {
-    content: "";
-    position: absolute;
     width: 10px;
     height: 10px;
-    border-radius: 50%;
-    background-color: rgb(0, 0, 0);
 }
 
 .cube .face:nth-child(4) .second {
-    position: absolute;
     width: 140px;
     height: 140px;
-    display: flex;
-    justify-content: center;
 }
 
 .cube .face:nth-child(4) .second::after {
-    content: "";
     width: 2px;
     height: 70px;
-    background-color: rgb(0, 0, 0);
 }
 
 .cube .face:nth-child(4) .minute {
-    position: absolute;
     width: 100px;
     height: 95px;
-    display: flex;
-    justify-content: center;
     align-items: start;
-
 }
 
 .cube .face:nth-child(4) .minute::after {
-    content: "";
     width: 60px;
     height: 40px;
     transform: rotate(-90deg);
     background: url(../clockImages/hands-minute-2.svg) center no-repeat;
     background-size: contain;
-
-
 }
 
 .cube .face:nth-child(4) .hour {
-    position: absolute;
     width: 70px;
     height: 83px;
-    display: flex;
-    justify-content: center;
     align-items: start;
-
 }
 
 .cube .face:nth-child(4) .hour::after {
-    content: "";
     width: 55px;
     height: 40px;
     transform: rotate(-90deg);
@@ -398,133 +367,33 @@ button:nth-child(2)::after {
     background-size: contain;
 }
 
-.cube .face:nth-child(3) .hour::after,
-.cube .face:nth-child(3) .minute::after,
-.cube .face:nth-child(3) .second::after {
-    content: "";
-    background-color: black;
-    border-radius: 8px 8px 0px 0px;
-}
 
-.cube .face:nth-child(3) .hour,
-.cube .face:nth-child(3) .minute,
-.cube .face:nth-child(3) .second {
-    position: absolute;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-}
-
-.cube .face:nth-child(3) .container {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    display: flex;
-    box-shadow: inset 0 0 5px black;
-    justify-content: center;
-    padding: 5px;
-    align-items: center;
-}
-
-.cube .face:nth-child(3) .clock {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: url(../clockImages/clock3.svg) no-repeat center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: contain;
-    position: relative;
-}
-
-.cube .face:nth-child(3) .clock::after {
-    content: "";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: rgb(0, 0, 0);
-    z-index: 5;
-}
-
-.cube .face:nth-child(3) .second {
-    width: 160px;
-    height: 160px;
-
-}
-
-.cube .face:nth-child(3) .second::after {
-    width: 7px;
-    height: 80px;
-
-}
-
-.cube .face:nth-child(3) .minute {
-    width: 110px;
-    height: 110px;
-
-
-}
-
-.cube .face:nth-child(3) .minute::after {
-    width: 7px;
-    height: 50px;
-
-}
-
-.cube .face:nth-child(3) .hour {
-    width: 70px;
-    height: 70px;
-
-
-}
-
-.cube .face:nth-child(3) .hour::after {
-
-    width: 7px;
-    height: 30px;
-
-}
-
-.loader {
+/* ------ Loading ------ */
+.loading {
     width: 100%;
     height: 100vh;
-    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 100;
     color: #A74AC7;
-
-
 }
 
 .cont {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-.loader p {
+.loading p {
     font-size: 30px;
     font-family: cursive;
 }
 
 .load {
-    content: "";
     width: 50px;
     height: 50px;
     background-color: transparent;
     border: 8px solid #A74AC7;
     border-top: 8px solid black;
-    border-radius: 50%;
     animation: loading .5s linear infinite;
 }
 
@@ -537,11 +406,4 @@ button:nth-child(2)::after {
         transform: rotate(1turn);
     }
 
-}
-
-
-
-.cube .face:nth-child(4) .container{
-    width: 100%;
-    height: 100%;
 }
