@@ -30,6 +30,12 @@ body {
     box-shadow: 0px 0px 5px black;
     position: fixed;
 }
+@media screen and (min-width: 1400px) {
+    .clock {
+        width: 650px;
+
+    }
+}
 
 .clock::after {
     content: "";
@@ -146,6 +152,12 @@ body {
     left: 10px;
     font-size: 40px;
     z-index: 100;
+}
+
+@media screen and (min-width : 1400px) {
+    .date{
+        font-size: 70px;
+    }
 }
 /* ------ click effect ------ */
 .mouse-effect{

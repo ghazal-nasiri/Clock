@@ -76,7 +76,7 @@ button:nth-child(2) {
 button:nth-child(2)::after {
     content: "\002771";
 }
-@media screen and (min-width:400px) {
+@media screen and (min-width:450px) {
     .canvas button{
         top: 50%;
     }
@@ -167,6 +167,25 @@ button:nth-child(2)::after {
 .cube .face:nth-child(4) {
     transform-origin: center left;
     transform: rotateY(-90deg);
+}
+
+@media screen and (min-width: 1400px) {
+    .cube .face:nth-child(1) {
+        transform: translateZ(300px);
+    }
+
+    .cube {
+        width: 300px;
+        height: 300px;
+        transform-origin: 50% 50% 150px;
+    }
+    .canvas {
+        width: 600px;
+        height: 600px;
+    }
+    .canvas button {
+        font-size: 70px;
+    }
 }
 
 .cube .face:nth-child(1) .clock {
