@@ -76,7 +76,7 @@ button:nth-child(2) {
 button:nth-child(2)::after {
     content: "\002771";
 }
-@media screen and (min-width:400px) {
+@media screen and (min-width:450px) {
     .canvas button{
         top: 50%;
     }
